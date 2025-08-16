@@ -30,14 +30,6 @@ interface FetchNotesApiResponse{
   totalPages: number;
 }
 
-// export type Tag = {
-//   id: string;
-//     title: string;
-//     content: string;
-//     createdAt: string;
-//     updatedAt: string;
-// }
-
 export const fetchNotes = async ({
   tag,
   search,
@@ -102,19 +94,3 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
   }
 };
 
-
-// export const getNotesTags = async (): Promise<Tag[]> => {
-//   try {
-//     const tags: Tag[] = [
-//     { id: "Work", title: "Work", content: "", createdAt: "", updatedAt: "" },
-//     { id: "Personal", title: "Personal", content: "", createdAt: "", updatedAt: "" },
-//     { id: "Meeting", title: "Meeting", content: "", createdAt: "", updatedAt: "" },
-//     { id: "Shopping", title: "Shopping", content: "", createdAt: "", updatedAt: "" },
-//     { id: "Todo", title: "Todo", content: "", createdAt: "", updatedAt: "" },
-//   ];
-//     return tags;
-//     } catch (error) {
-//     handleApiError(error, "get tags");
-//     throw error;
-//   }
-// };
