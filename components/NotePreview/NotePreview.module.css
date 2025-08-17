@@ -66,3 +66,7 @@
   display: inline-block;
   background-color: transparent;
 }
+
+.backBtn:hover {
+  background-color: #e7f1ff;
+}

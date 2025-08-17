@@ -1,23 +1,20 @@
 import css from "./Header.module.css";
 import Link from "next/link";
-// import {getNotesTags} from "../../lib/api";
 import TagsMenu from "../TagsMenu/TagsMenu";
 
 const Header =  () => {
 
-  // const tags = await getNotesTags();
-
   return (
   <header className={css.header}>
-    <Link href="/" aria-label="Home">
+    <Link href="/" aria-label="Home" className={css.headerLink}>
       NoteHub
     </Link>
     <nav aria-label="Main Navigation">
       <ul className={css.navigation}>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" className={css.navigationLink}>Home</Link>
         </li>
-         <li>
+         <li className={css.navigationItem}>
           <TagsMenu/>
          </li> 
       </ul>

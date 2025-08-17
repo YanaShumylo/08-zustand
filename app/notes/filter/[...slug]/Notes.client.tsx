@@ -8,12 +8,12 @@ import css from "../../../../components/NotesPage/NotesPage.module.css";
 import SearchBox from "../../../../components/SearchBox/SearchBox";
 import Pagination from "../../../../components/Pagination/Pagination";
 import NoteList from "../../../../components/NoteList/NoteList";
-import Modal from "../../../../components/Modal/Modal";
-import NoteForm from "../../../../components/NoteForm/NoteForm";
-import { fetchNotes } from "../../../../lib/api";
+// import Modal from "../../../../components/Modal/Modal";
+// import NoteForm from "../../../../components/NoteForm/NoteForm";
+import{ fetchNotes } from "../../../../lib/api";
 import Loader from "../../../../app/loading";
 import ErrorMessage from "../../../../components/Error/Error";
-
+import Link from 'next/link';
 
 interface NotesClientProps {
   initialData: Awaited<ReturnType<typeof fetchNotes>>;
@@ -23,7 +23,7 @@ interface NotesClientProps {
 export default function NotesClient({ initialData, tag }: NotesClientProps) {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [debouncedSearch] = useDebounce(search, 500);
  
   useEffect(() => {
@@ -49,8 +49,8 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
     placeholderData: (previousData) => previousData,
     initialData: isInitial ? initialData : undefined,
 });
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+  // const handleOpenModal = () => setIsModalOpen(true);
+  // const handleCloseModal = () => setIsModalOpen(false);
 
   const notes = data?.data ?? [];
 
@@ -65,9 +65,10 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
             onPageChange={setCurrentPage}
           />
         )}
-        <button className={css.button} onClick={handleOpenModal}>
+        {/* <button className={css.button} onClick={handleOpenModal}>
           Create note +
-        </button>
+        </button> */}
+        <Link href={'/notes/action/create'} className={css.button}>Create note + </Link>
       </header>
 
       <Toaster position="top-left" />
@@ -82,11 +83,11 @@ export default function NotesClient({ initialData, tag }: NotesClientProps) {
 
       {notes.length > 0 && <NoteList notes={notes} />}
      
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <Modal onClose={handleCloseModal}>
           <NoteForm onClose={handleCloseModal} />
         </Modal>
-      )}
+      )} */}
     </div>
   );
 }

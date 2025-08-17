@@ -40,17 +40,16 @@ const router = useRouter();
 
   return (
     <Modal onClose={handleClose}>
+      <button onClick={handleClose} className={css.backBtn}>Close</button>
       <div className={css.container}>
-        <div className={css.item}>
+                <div className={css.item}>
         <div className={css.header}>
-          <h2 className={css.title}> Title: {note.title}</h2>
-          <button onClick={handleClose} className={css.backBtn}>Close</button>
-        </div>
+            <h2 className={css.header}> Title: {note.title}</h2>
+                    </div>
+        <p className={css.content}><span>Id:</span> {note.id}</p>
         <p className={css.content}><span>Content:</span> {note.content}</p>
-       
-          <p className={css.tag}><span>Tag:</span> {note.tag || '—'}</p>
-          <p className={css.date}><span>Created at:</span> {new Date(note.createdAt).toLocaleString()}</p>
-       
+        <p className={css.tag}><span>Tag:</span> {note.tag || '—'}</p>
+        <p className={css.date}><span>Created at:</span> {new Date(note.createdAt).toLocaleString()}</p>
         </div>
         </div>
     </Modal>
