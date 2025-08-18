@@ -5,7 +5,7 @@
   background-color: #f0f0f0;
   text-align: center;
   font-size: 14px;
-  color: #555;
+  color: #333;
   border-top: 1px solid #ddd;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .footer a {
-  color: #0d6efd;
+  color: #0056b3;
   font-weight: 600;
   text-decoration: none;
 }
